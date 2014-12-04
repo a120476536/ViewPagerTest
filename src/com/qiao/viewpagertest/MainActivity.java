@@ -15,6 +15,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.ScaleAnimation;
+import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -76,9 +80,42 @@ public class MainActivity extends FragmentActivity {
 				for (int i = 0; i < title.length; i++) {
 					dors[i].setEnabled(true);
 					title[i].setEnabled(true);
+//					title[i].setShadowLayer(0, 3, 3, 0xFFFF00FF);
 				}
 				title[arg0].setEnabled(false);
 				dors[arg0].setEnabled(false);
+				
+				  AnimationSet animationSet = new AnimationSet(true);
+				  /**
+				   * 缩放效果动画
+				   */
+//				 ScaleAnimation scaleAnimation = new ScaleAnimation(0, 0.9f,0,0.9f,Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
+//				 scaleAnimation.setDuration(600);
+//				 animationSet.addAnimation(scaleAnimation);
+				/**
+				 * 移动效果动画
+				 * 
+				 * 
+				 * 以下移动效果目前最佳
+				 * 
+				 */
+				  
+				  /**
+				   * 从右往左
+				   */
+//				TranslateAnimation translateAnimation = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 1f,Animation.RELATIVE_TO_SELF, 0f,Animation.RELATIVE_TO_SELF, 0f,Animation.RELATIVE_TO_SELF, 0f);
+//				translateAnimation.setDuration(600);
+//				animationSet.addAnimation(translateAnimation);
+//				title[arg0].startAnimation(animationSet);
+//				dors[arg0].startAnimation(animationSet);
+				  /**
+				   * 从左往右
+				   */
+				  TranslateAnimation translateAnimation2 = new TranslateAnimation(Animation.RELATIVE_TO_SELF, -1f, Animation.RELATIVE_TO_SELF, 0f,Animation.RELATIVE_TO_SELF,0f,Animation.RELATIVE_TO_SELF,0f);
+				  translateAnimation2.setDuration(600);
+				  animationSet.addAnimation(translateAnimation2);
+				 title[arg0].startAnimation(animationSet);
+				 dors[arg0].startAnimation(animationSet);
 			}
 			
 			@Override
@@ -150,6 +187,15 @@ public class MainActivity extends FragmentActivity {
 			 * 已经处于页面前端的无法被再次选择
 			 */
 			title[0].setEnabled(false);
+//			 AnimationSet animationSet = new AnimationSet(true);
+////			 ScaleAnimation scaleAnimation = new ScaleAnimation(0, 0.9f,0,0.9f,Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
+////			 scaleAnimation.setDuration(600);
+////			 animationSet.addAnimation(scaleAnimation);
+//			 TranslateAnimation translateAnimation = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0f, Animation.RELATIVE_TO_SELF, 0.5f,Animation.RELATIVE_TO_SELF,0f,Animation.RELATIVE_TO_SELF,0.5f);
+//			 translateAnimation.setDuration(600);
+//			  animationSet.addAnimation(translateAnimation);
+//			 title[0].startAnimation(animationSet);
+//			title[0].setShadowLayer(5, 3, 3, 0xFFFF00FF);
 		}
 	}
 
